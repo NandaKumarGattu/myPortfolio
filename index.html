@@ -1,0 +1,382 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nanda Kumar Gattu - Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2d3436;
+            --secondary-color: #0984e3;
+            --background-color: #f5f6fa;
+            --text-color: #2d3436;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding-top: 60px; /* Space for fixed nav */
+        }
+
+        /* Navigation Styles */
+        .nav-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: white;
+            padding: 1rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-weight: bold;
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: #ddd;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+
+        h1, h2, h3 {
+            color: var(--secondary-color);
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .skill-card {
+            background: var(--background-color);
+            padding: 1rem;
+            border-radius: 5px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .project-card {
+            background: var(--background-color);
+            padding: 1.5rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .education-item {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .education-item:hover {
+            transform: translateX(10px);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: scale(1.2);
+        }
+
+        /* Footer Styles */
+        .footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .footer p {
+            margin: 0.5rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .nav-header {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 0.5rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        .profile-container {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 1.5rem;
+            position: relative;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            border: 5px solid rgba(255,255,255,0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-container:hover {
+            transform: scale(1.05) rotate(5deg);
+        }
+
+        .profile-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="nav-header">
+        <a href="#" class="nav-logo"></a>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#education">Education</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#interests">Interests</a>
+        </div>
+    </nav>
+    <header>
+        <div class="profile-container">
+            <!-- Replace src with your actual photo URL -->
+            <img src="../images/ps.jpg" alt="Nanda Kumar Gattu" />
+        </div>
+        <h1>Nanda Kumar Gattu</h1>
+        <!-- <p>Web Developer</p> -->
+        <div class="contact-info">
+            <a href="tel:+917780165269"><i class="fas fa-phone"></i> +91 7780165269</a>
+            <a href="mailto:nandugattu7788@gmail.com"><i class="fas fa-envelope"></i> nandugattu7788@gmail.com</a>
+        </div>
+        <div class="social-links">
+            <!-- <a href="https://linkedin.com/in/nanda-kumar-gattu" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/NandaKumarGattu" target="_blank"><i class="fab fa-github"></i></a> -->
+
+            <a href="Nandu_Resume.pdf" download="Nanda_Kumar_Resume.pdf" class="header-btn download-btn">
+                <i class="fas fa-download btn-icon"></i>
+                Download Resume
+            </a>
+        </div>
+        
+    </header>
+
+    <div class="container">
+        <section class="section" id="about">
+            <h2>About Me</h2>
+            <p>I am a Computer Science Engineering student at SR University with a strong foundation in web development and programming. I am adaptable, collaborative, and self-motivated with excellent communication and teamwork skills.</p>
+        </section>
+
+        <section class="section" id="education">
+            <h2>Education</h2>
+            <div class="education-item">
+                <h3>B.Tech in Computer Science and Engineering</h3>
+                <p>SR University | 2022 – Present</p>
+                <p>CGPA: 7.81</p>
+            </div>
+            <div class="education-item">
+                <h3>Diploma in Electrical and Electronics Engineering</h3>
+                <p>VMR Polytechnic, Warangal | 2019 – 2022</p>
+                <p>CGPA: 6.3</p>
+            </div>
+            <div class="education-item">
+                <h3>SSC</h3>
+                <p>Telangana State Model School, Station Ghanpur | 2015 – 2019</p>
+                <p>GPA: 7.8</p>
+            </div>
+        </section>
+
+        <section class="section" id="projects">
+            <h2>Projects</h2>
+            <div class="project-card">
+                <h3>Car Booking And Rental System</h3>
+                <p>Developed a frontend web interface for car booking and rental system using HTML, CSS, and JavaScript.</p>
+            </div>
+            <div class="project-card">
+                <h3>Image Search Engine With Chatbot</h3>
+                <p>The web application with the provides results for image search query and also for chatbot query with help of an API KEY.</p>
+            </div>
+        </section>
+
+        <section class="section" id="skills">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Programming</h3>
+                    <p>Java, Python</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Web Development</h3>
+                    <p>HTML, CSS, JavaScript</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Databases</h3>
+                    <p>MySQL</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="interests">
+            <h2>Interests & Activities</h2>
+            <p>Reading Books, Watching Movies and TV Shows, Playing Video Games</p>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/nandakumar-gattu-7bb40824a/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/NandaKumarGattu" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+        <p>© 2024 Nanda Kumar Gattu. All Rights Reserved.</p>
+        <!-- <p>Made with <i class="fas fa-heart" style="color: #e74c3c;"></i> in India</p> -->
+    </footer>
+
+    <script>
+        // Add smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add animation on scroll
+        function reveal() {
+            var reveals = document.querySelectorAll(".section");
+            reveals.forEach(reveal => {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveal.getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveal.classList.add("active");
+                }
+            });
+        }
+
+        window.addEventListener("scroll", reveal);
+    </script>
+</body>
+</html>
